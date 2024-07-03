@@ -1,4 +1,4 @@
-require 'rack/file'
+require 'rack/files'
 
 module Hanami
   module Action
@@ -21,7 +21,7 @@ module Hanami
         # @since 0.4.3
         # @api private
         def initialize(path, root)
-          @file = ::Rack::File.new(root.to_s)
+          @file = ::Rack::Files.new(root.to_s)
           @path = path.to_s
         end
 
