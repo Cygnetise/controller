@@ -1,4 +1,4 @@
-require 'hanami/utils/hash'
+require 'hanami/cyg_utils/hash'
 
 module Hanami
   module Action
@@ -55,7 +55,7 @@ module Hanami
       # @since 0.1.0
       def initialize(env, headers, default_options)
         @_headers        = headers
-        @cookies         = Utils::Hash.new(extract(env)).deep_symbolize!
+        @cookies         = CygUtils::Hash.new(extract(env)).deep_symbolize!
         @default_options = default_options
       end
 

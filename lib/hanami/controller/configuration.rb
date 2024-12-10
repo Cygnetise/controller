@@ -1,6 +1,6 @@
-require 'hanami/utils/class'
-require 'hanami/utils/kernel'
-require 'hanami/utils/string'
+require 'hanami/cyg_utils/class'
+require 'hanami/cyg_utils/kernel'
+require 'hanami/cyg_utils/string'
 
 module Hanami
   module Controller
@@ -96,8 +96,8 @@ module Hanami
       #   Hanami::Controller::Configuration.for(MyApp::Controllers::Dashboard)
       #     # => will duplicate from MyApp::Controller
       def self.for(base)
-        namespace = Utils::String.namespace(base.name)
-        framework = Utils::Class.load("#{namespace}::Controller") || Utils::Class.load!('Hanami::Controller')
+        namespace = CygUtils::String.namespace(base.name)
+        framework = CygUtils::Class.load("#{namespace}::Controller") || CygUtils::Class.load!('Hanami::Controller')
         framework.configuration.duplicate
       end
 
@@ -415,9 +415,9 @@ module Hanami
       #     # => Content-Type "application/custom"
       #   action.format # => :custom
       def format(hash)
-        symbol, mime_type = *Utils::Kernel.Array(hash)
+        symbol, mime_type = *CygUtils::Kernel.Array(hash)
 
-        @formats[Utils::Kernel.String(mime_type)] = Utils::Kernel.Symbol(symbol)
+        @formats[CygUtils::Kernel.String(mime_type)] = CygUtils::Kernel.Symbol(symbol)
         @mime_types = nil
       end
 
@@ -486,7 +486,7 @@ module Hanami
       #   end
       def default_request_format(format = nil)
         if format
-          @default_request_format = Utils::Kernel.Symbol(format)
+          @default_request_format = CygUtils::Kernel.Symbol(format)
         else
           @default_request_format
         end
@@ -530,7 +530,7 @@ module Hanami
       #   end
       def default_response_format(format = nil)
         if format
-          @default_response_format = Utils::Kernel.Symbol(format)
+          @default_response_format = CygUtils::Kernel.Symbol(format)
         else
           @default_response_format
         end

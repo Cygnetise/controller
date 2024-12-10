@@ -1,5 +1,5 @@
 require 'rack/request'
-require 'hanami/utils/hash'
+require 'hanami/cyg_utils/hash'
 
 module Hanami
   module Action
@@ -64,7 +64,7 @@ module Hanami
       def initialize(env)
         @env    = env
         @raw    = _extract_params
-        @params = Utils::Hash.deep_symbolize(@raw)
+        @params = CygUtils::Hash.deep_symbolize(@raw)
         freeze
       end
 
@@ -173,7 +173,7 @@ module Hanami
       def _router_params(fallback = {})
         env.fetch(ROUTER_PARAMS) do
           if session = fallback.delete(RACK_SESSION) # rubocop:disable Lint/AssignmentInCondition
-            fallback[RACK_SESSION] = Utils::Hash.new(session).symbolize!.to_hash
+            fallback[RACK_SESSION] = CygUtils::Hash.new(session).symbolize!.to_hash
           end
 
           fallback

@@ -5,4 +5,4 @@ require 'hanami/controller'
 require 'hanami/action/cookies'
 require 'hanami/action/session'
 
-Hanami::Utils.require!("spec/support")
+Hanami::CygUtils.require!("spec/support")

@@ -1,4 +1,4 @@
-require 'hanami/utils/class_attribute'
+require 'hanami/cyg_utils/class_attribute'
 
 module Hanami
   module Action
@@ -30,7 +30,7 @@ module Hanami
         config = Hanami::Controller::Configuration.for(base)
 
         base.class_eval do
-          include Utils::ClassAttribute
+          include CygUtils::ClassAttribute
 
           class_attribute :configuration
           self.configuration = config

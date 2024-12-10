@@ -1,4 +1,4 @@
-require 'hanami/utils/class_attribute'
+require 'hanami/cyg_utils/class_attribute'
 require 'hanami/action'
 require 'hanami/controller/configuration'
 require 'hanami/controller/version'
@@ -63,7 +63,7 @@ module Hanami
       end
     end
 
-    include Utils::ClassAttribute
+    include CygUtils::ClassAttribute
 
     # Framework configuration
     #

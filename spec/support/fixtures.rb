@@ -1,7 +1,7 @@
 require 'json'
 require 'digest/md5'
 require 'hanami/router'
-require 'hanami/utils/escape'
+require 'hanami/cyg_utils/escape'
 require 'hanami/action/params'
 require 'hanami/action/cookies'
 require 'hanami/action/session'
@@ -533,7 +533,7 @@ class SafeStringRedirectAction
   include Hanami::Action
 
   def call(params)
-    location = Hanami::Utils::Escape::SafeString.new('/destination')
+    location = Hanami::CygUtils::Escape::SafeString.new('/destination')
     redirect_to location
   end
 end

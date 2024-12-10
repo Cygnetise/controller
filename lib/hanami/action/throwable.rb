@@ -1,4 +1,4 @@
-require 'hanami/utils/class_attribute'
+require 'hanami/cyg_utils/class_attribute'
 require 'hanami/http/status'
 require 'hanami/action/rack/errors'
 

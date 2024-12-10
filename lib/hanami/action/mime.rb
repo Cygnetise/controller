@@ -1,6 +1,6 @@
 require 'rack/utils'
 require 'hanami/utils'
-require 'hanami/utils/kernel'
+require 'hanami/cyg_utils/kernel'
 
 module Hanami
   module Action
@@ -485,7 +485,7 @@ module Hanami
       #   headers['Content-Type'] # => 'application/custom'
       #   action.format           # => :custom
       def format=(format)
-        @format       = Utils::Kernel.Symbol(format)
+        @format       = CygUtils::Kernel.Symbol(format)
         @content_type = self.class.format_to_mime_type(@format)
       end
 
