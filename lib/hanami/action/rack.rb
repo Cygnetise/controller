@@ -3,7 +3,7 @@ require 'hanami/action/request'
 require 'hanami/action/base_params'
 require 'hanami/action/rack/callable'
 require 'hanami/action/rack/file'
-require 'hanami/utils/deprecation'
+require 'hanami/cyg_utils/deprecation'
 
 module Hanami
   module Action
@@ -257,7 +257,7 @@ module Hanami
       #
       # @deprecated
       def parsed_request_body
-        Hanami::Utils::Deprecation.new('#parsed_request_body is deprecated and it will be removed in future versions')
+        Hanami::CygUtils::Deprecation.new('#parsed_request_body is deprecated and it will be removed in future versions')
         @_env.fetch(ROUTER_PARSED_BODY, nil)
       end
 

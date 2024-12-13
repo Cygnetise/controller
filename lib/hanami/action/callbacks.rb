@@ -1,5 +1,5 @@
-require 'hanami/utils/class_attribute'
-require 'hanami/utils/callbacks'
+require 'hanami/cyg_utils/class_attribute'
+require 'hanami/cyg_utils/callbacks'
 
 module Hanami
   module Action
@@ -41,13 +41,13 @@ module Hanami
         # @see http://www.ruby-doc.org/core/Module.html#method-i-extended
         def self.extended(base)
           base.class_eval do
-            include Utils::ClassAttribute
+            include CygUtils::ClassAttribute
 
             class_attribute :before_callbacks
-            self.before_callbacks = Utils::Callbacks::Chain.new
+            self.before_callbacks = CygUtils::Callbacks::Chain.new
 
             class_attribute :after_callbacks
-            self.after_callbacks = Utils::Callbacks::Chain.new
+            self.after_callbacks = CygUtils::Callbacks::Chain.new
           end
         end
 
